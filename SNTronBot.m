@@ -58,6 +58,7 @@
 	
 	[task setLaunchPath:command];
 	[task setArguments:arguments];
+	[task setCurrentDirectoryPath:[filename stringByDeletingLastPathComponent]];
 	[task setEnvironment:[NSDictionary dictionaryWithObject:@"/usr/local/bin:/usr/bin"
 													 forKey:@"PATH"]];
 	
