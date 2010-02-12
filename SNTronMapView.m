@@ -25,6 +25,10 @@
 	[self setNeedsDisplay:YES];
 }
 
+- (BOOL)isFlipped {
+	return YES;
+}
+
 - (void)drawRect:(NSRect)dirtyRect {
 	CGRect rect = CGRectMake(0, 0, blockWidth, blockHeight);
 	int wall = [map wallValue], empty = [map emptyValue], p1 = [map p1Value], p2 = [map p2Value];
