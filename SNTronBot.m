@@ -21,23 +21,33 @@
 -(void) setFilename:(NSString *)name {
 	filename = [name retain];
 	
-	NSDictionary *lookups = [NSDictionary dictionaryWithObjectsAndKeys:
-							@"python $1", @"py",
-							@"ruby $1", @"rb", 
-							@"$1", @"", 
-							@"java -jar $1", @"jar", nil];
+	NSDictionary *commandLookups = [NSDictionary dictionaryWithObjectsAndKeys:
+									@"/usr/bin/python", @"py",
+									@"/usr/bin/ruby", @"rb", 
+									@"/usr/bin/java -jar", @"jar", nil];
+
+	NSDictionary *argumentLookups = [NSDictionary dictionaryWithObjectsAndKeys:
+									 @"-jar", @"jar", nil];
 	
 	NSString *extension = [[filename componentsSeparatedByString:@"."] lastObject];
 	
 	if ([extension isEqualToString:filename]) {
 		extension = @"";
+		command = filename;
+		arguments = [[NSArray alloc] init];
+	} else {
+		command = [commandLookups valueForKey:extension];
+		NSString *secondaryArgument = [argumentLookups valueForKey:extension];
+		NSMutableArray *tempArguments = [[NSMutableArray alloc] init];
+		
+		if (secondaryArgument != nil) {
+			[tempArguments addObject:secondaryArgument];
+		}
+		
+		[tempArguments addObject:filename];
+		arguments = tempArguments;
 	}
-	
-	NSString *lookup = [lookups valueForKey:extension];
-	command = [[lookup stringByReplacingOccurrencesOfString:@"$1" withString:filename] retain];
-}
 
--(void) launch {
 	if ([task isRunning]) {
 		NSLog(@"Terminating task.. %d", [task processIdentifier]);
 		[task terminate];
@@ -48,15 +58,17 @@
 	task = [[NSTask alloc] init];
 	
 	[task setLaunchPath:command];
+	[task setArguments:arguments];
 	[task setEnvironment:[NSDictionary dictionaryWithObject:@"/usr/local/bin:/usr/bin"
 													 forKey:@"PATH"]];
-
+	
 	[task setStandardInput:input];
 	[task setStandardOutput:output];
 	
+}
+
+-(void) launch {
 	[task launch];
-	
-	NSLog(@"task: in: %@ out: %@", [task standardInput], [task standardOutput]);
 }
 
 -(void) kill {

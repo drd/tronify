@@ -11,6 +11,7 @@
 
 @interface SNTronBot : NSObject {
 	NSString *filename, *command;
+	NSArray *arguments;
 	NSTask *task;
 	NSPipe *input, *output;
 }
