@@ -110,5 +110,10 @@
 	}
 }	
 
+-(void) dealloc {
+	[player1 dealloc];
+	[player2 dealloc];
+	[super dealloc];
+}
 
 @end

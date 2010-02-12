@@ -24,7 +24,7 @@
 	NSDictionary *commandLookups = [NSDictionary dictionaryWithObjectsAndKeys:
 									@"/usr/bin/python", @"py",
 									@"/usr/bin/ruby", @"rb", 
-									@"/usr/bin/java -jar", @"jar", nil];
+									@"/usr/bin/java", @"jar", nil];
 
 	NSDictionary *argumentLookups = [NSDictionary dictionaryWithObjectsAndKeys:
 									 @"-jar", @"jar", nil];
@@ -32,11 +32,10 @@
 	NSString *extension = [[filename componentsSeparatedByString:@"."] lastObject];
 	
 	if ([extension isEqualToString:filename]) {
-		extension = @"";
 		command = filename;
 		arguments = [[NSArray alloc] init];
 	} else {
-		command = [commandLookups valueForKey:extension];
+		command = [[commandLookups valueForKey:extension] retain];
 		NSString *secondaryArgument = [argumentLookups valueForKey:extension];
 		NSMutableArray *tempArguments = [[NSMutableArray alloc] init];
 		
@@ -53,8 +52,8 @@
 		[task terminate];
 	}
 	
-	input = [NSPipe pipe];
-	output = [NSPipe pipe];
+	input = [[NSPipe pipe] retain];
+	output = [[NSPipe pipe] retain];
 	task = [[NSTask alloc] init];
 	
 	[task setLaunchPath:command];

@@ -45,6 +45,7 @@
 			} else if (val == p2) {
 				c = [NSColor blueColor];
 			} else {
+				c = [NSColor whiteColor];
 				// stupid
 			}
 
