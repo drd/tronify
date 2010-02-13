@@ -16,6 +16,14 @@
 	NSArray *fileTypes = [NSArray arrayWithObjects:@"txt", nil];
 	NSString *filename = [self chooseFileWithTypes:fileTypes];
 	
+	if ([filename isEqualToString:@""]) {
+		return;
+	}
+	
+	if (map != nil) {
+		[map release];
+	}
+	
 	map = [[SNTronMap alloc] initFromFile:filename];
 	mapView.map = map;
 }
