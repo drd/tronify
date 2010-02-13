@@ -1350,7 +1350,7 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSView" id="628160507">
 							<reference key="NSNextResponder" ref="439893737"/>
-							<int key="NSvFlags">4378</int>
+							<int key="NSvFlags">4370</int>
 							<string key="NSFrame">{{20, 48}, {544, 546}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 						</object>
@@ -2198,6 +2198,14 @@
 						<reference key="destination" ref="1041124675"/>
 					</object>
 					<int key="connectionID">558</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">delegate</string>
+						<reference key="source" ref="972006081"/>
+						<reference key="destination" ref="628160507"/>
+					</object>
+					<int key="connectionID">559</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -3564,7 +3572,6 @@
 					<string>539.IBPluginDependency</string>
 					<string>540.IBPluginDependency</string>
 					<string>541.IBPluginDependency</string>
-					<string>545.IBPluginDependency</string>
 					<string>554.IBPluginDependency</string>
 					<string>555.IBPluginDependency</string>
 					<string>56.IBPluginDependency</string>
@@ -3839,7 +3846,6 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
 					<string>{{286, 129}, {275, 183}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3863,7 +3869,7 @@
 					<integer value="1"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
-					<string>{{451, 593}, {200, 243}}</string>
+					<string>{{450, 592}, {200, 243}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
 					<string>{{145, 474}, {199, 203}}</string>
@@ -3891,7 +3897,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">558</int>
+			<int key="maxID">559</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">

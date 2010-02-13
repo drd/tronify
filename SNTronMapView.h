@@ -9,11 +9,13 @@
 #import <Cocoa/Cocoa.h>
 #import "SNTronMap.h"
 
-@interface SNTronMapView : NSView {
+@interface SNTronMapView : NSView <NSWindowDelegate> {
 	SNTronMap *map;
 	int width, height;
-	int blockWidth, blockHeight;
+	float blockWidth, blockHeight;
 }
+
+- (void)configureBlockSizeForFrameSize:(NSSize)frameSize;
 
 @property (nonatomic,retain) SNTronMap *map;
 

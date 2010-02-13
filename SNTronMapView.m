@@ -17,12 +17,26 @@
 	
 	width = map.width;
 	height = map.height;
-	
-	NSSize size = [self frame].size;
-	blockWidth = size.width / map.width;
-	blockHeight = size.height / map.height;
+	[self configureBlockSizeForFrameSize:[self frame].size];
+}
+
+- (void)configureBlockSizeForFrameSize:(NSSize)frameSize {
+	blockWidth = frameSize.width / width;
+	blockHeight = frameSize.height / height;
 	
 	[self setNeedsDisplay:YES];
+}
+
+- (NSSize)windowWillResize:(NSWindow *)sender toSize:(NSSize)frameSize {
+//	NSLog(@"resizing to: %@", frameSize);
+	[self configureBlockSizeForFrameSize:frameSize];
+
+	return frameSize;
+}
+
+- (void)windowDidResize:(NSNotification *)notification {
+	NSLog(@"resize?: %@", notification);
+	[self configureBlockSizeForFrameSize:[self frame].size];
 }
 
 - (BOOL)isFlipped {
