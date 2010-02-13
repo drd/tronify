@@ -11,16 +11,24 @@
 #import "SNTronBot.h"
 #import "SNTronMapView.h"
 
-@interface SNMainWindowController : NSWindowController {
+#define PLAYER1	0
+#define PLAYER2	1
+
+@class SNTronMapView;
+
+@interface SNMatchController : NSWindowController {
 	SNTronMap *map;
-	SNTronBot *player1, *player2;	
+	NSMutableArray *players;
 	
 	NSTimer *botTimer;
 	BOOL gameRunning;
 	
 	IBOutlet NSWindow *window;
 	IBOutlet SNTronMapView *mapView;
+	IBOutlet NSTextField *player1Field, *player2Field;
 }
+
+-(void) setup;
 
 -(IBAction) openFile:(id)sender;
 -(IBAction) setP1:(id)sender;
@@ -32,7 +40,10 @@
 
 -(void) killAllBots;
 
--(SNTronBot *) setPlayer:(int)playerNum;
+-(void) setPlayer:(int)playerNum;
 -(NSString *) chooseFileWithTypes:(NSArray*)types;
+
+@property (readonly) SNTronBot *player1;
+@property (readonly) SNTronBot *player2;
 
 @end

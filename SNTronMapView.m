@@ -10,7 +10,7 @@
 
 @implementation SNTronMapView
 
-@synthesize map;
+@synthesize map, controller;
 
 - (void)setMap:(SNTronMap *)newMap {
 	map = newMap;
@@ -60,8 +60,14 @@
 				c = [NSColor whiteColor];
 			} else if (val == p1) {
 				c = [NSColor redColor];
+				if (controller.player1 == nil) {
+					c = [NSColor colorWithDeviceRed:1.0 green:0.5 blue:0.5 alpha:1.0];
+				}
 			} else if (val == p2) {
 				c = [NSColor blueColor];
+				if (controller.player2 == nil) {
+					c = [NSColor colorWithDeviceRed:0.5 green:0.5 blue:1.0 alpha:1.0];
+				}
 			} else {
 				c = [NSColor whiteColor];
 				// stupid

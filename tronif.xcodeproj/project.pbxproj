@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0775C59711247153004BE049 /* SNMainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0775C59611247153004BE049 /* SNMainWindowController.m */; };
+		0775C59711247153004BE049 /* SNMatchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0775C59611247153004BE049 /* SNMatchController.m */; };
 		0775C59A11247162004BE049 /* SNTronMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0775C59911247162004BE049 /* SNTronMapView.m */; };
 		0775C59D1124717B004BE049 /* SNTronMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 0775C59C1124717B004BE049 /* SNTronMap.m */; };
 		0775C65C1124C132004BE049 /* SNTronBot.m in Sources */ = {isa = PBXBuildFile; fileRef = 0775C65B1124C132004BE049 /* SNTronBot.m */; };
@@ -20,8 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0775C59511247153004BE049 /* SNMainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNMainWindowController.h; sourceTree = "<group>"; };
-		0775C59611247153004BE049 /* SNMainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNMainWindowController.m; sourceTree = "<group>"; };
+		0775C59511247153004BE049 /* SNMatchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNMatchController.h; sourceTree = "<group>"; };
+		0775C59611247153004BE049 /* SNMatchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNMatchController.m; sourceTree = "<group>"; };
 		0775C59811247162004BE049 /* SNTronMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNTronMapView.h; sourceTree = "<group>"; };
 		0775C59911247162004BE049 /* SNTronMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNTronMapView.m; sourceTree = "<group>"; };
 		0775C59B1124717B004BE049 /* SNTronMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNTronMap.h; sourceTree = "<group>"; };
@@ -70,8 +70,8 @@
 				0775C59C1124717B004BE049 /* SNTronMap.m */,
 				256AC3D80F4B6AC300CF3369 /* tronifAppDelegate.h */,
 				256AC3D90F4B6AC300CF3369 /* tronifAppDelegate.m */,
-				0775C59511247153004BE049 /* SNMainWindowController.h */,
-				0775C59611247153004BE049 /* SNMainWindowController.m */,
+				0775C59511247153004BE049 /* SNMatchController.h */,
+				0775C59611247153004BE049 /* SNMatchController.m */,
 				0775C59811247162004BE049 /* SNTronMapView.h */,
 				0775C59911247162004BE049 /* SNTronMapView.m */,
 				0775C65A1124C132004BE049 /* SNTronBot.h */,
@@ -205,7 +205,7 @@
 			files = (
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				256AC3DA0F4B6AC300CF3369 /* tronifAppDelegate.m in Sources */,
-				0775C59711247153004BE049 /* SNMainWindowController.m in Sources */,
+				0775C59711247153004BE049 /* SNMatchController.m in Sources */,
 				0775C59A11247162004BE049 /* SNTronMapView.m in Sources */,
 				0775C59D1124717B004BE049 /* SNTronMap.m in Sources */,
 				0775C65C1124C132004BE049 /* SNTronBot.m in Sources */,

@@ -6,11 +6,22 @@
 //  Copyright 2010 Roundpeg Designs. All rights reserved.
 //
 
-#import "SNMainWindowController.h"
+#import "SNMatchController.h"
 
 
-@implementation SNMainWindowController
+@implementation SNMatchController
 
+- (void)setup {
+	players = [[NSMutableArray alloc] initWithCapacity:2];
+}
+
+-(SNTronBot *)player1 {
+	return [players objectAtIndex:PLAYER1];
+}
+
+-(SNTronBot *)player2 {
+	return [players objectAtIndex:PLAYER2];
+}
 
 -(IBAction) openFile:(id)sender {
 	NSArray *fileTypes = [NSArray arrayWithObjects:@"txt", nil];
@@ -29,19 +40,35 @@
 }
 
 -(IBAction) setP1:(id)sender {
-	player1 = [self setPlayer:1];
+	[self setPlayer:PLAYER1];
+	NSLog(@"player 1: %@", self.player1);
+	NSLog(@"filename: %@", self.player1.filename);
+	[player1Field setStringValue:self.player1.filename];
 }
 
 -(IBAction) setP2:(id)sender {
-	player2 = [self setPlayer:2];
+	[self setPlayer:PLAYER2];
+	NSLog(@"filename: %@", self.player2.filename);
+	[player2Field setStringValue:self.player2.filename];
 }
 
--(SNTronBot *) setPlayer:(int)playerNum {
-	return [[SNTronBot alloc] initFromFile:[self chooseFileWithTypes:nil]];
+-(void) setPlayer:(int)playerNum {
+	NSString *filename = [self chooseFileWithTypes:nil];
+	
+	if ([filename isEqualToString:@""]) {
+		return;
+	}
+	
+	if ([players count] >= (playerNum + 1) && [players objectAtIndex:playerNum] != nil) {
+		[[players objectAtIndex:playerNum] release];
+	}
+	
+	[players insertObject:[[SNTronBot alloc] initFromFile:filename] atIndex:playerNum];
+	[mapView setNeedsDisplay:YES];
 }
 
 -(IBAction) go:(id)sender {
-	if (player1 == nil || player2 == nil || map == nil) {
+	if (self.player1 == nil || self.player2 == nil || map == nil) {
 		NSAlert * lert = [NSAlert alertWithMessageText:@"Dude, WTF!?" 
 										 defaultButton:@"Oops"
 									   alternateButton:nil
@@ -52,9 +79,9 @@
 	}
 	
 	NSLog(@"Launching player 1");
-	[player1 launch];
+	[self.player1 launch];
 	NSLog(@"Launching player 2");
-	[player2 launch];
+	[self.player2 launch];
 	
 	NSLog(@"Starting game timer..");
 	gameRunning = YES;
@@ -67,8 +94,8 @@
 
 -(void) performStep {
 	NSLog(@"performStep, taking player turns");
-	int p1move = [player1 takeATurn:map];
-	int p2move = [player2 takeATurn:map];
+	int p1move = [self.player1 takeATurn:map];
+	int p2move = [self.player2 takeATurn:map];
 	
 	NSLog(@"p1move: %d p2move: %d", p1move, p2move);
 	
@@ -90,8 +117,8 @@
 }
 
 -(void) killAllBots {
-	[player1 kill];
-	[player2 kill];
+	[self.player1 kill];
+	[self.player2 kill];
 }
 
 -(NSString *) chooseFileWithTypes:(NSArray *)types {
@@ -119,8 +146,9 @@
 }	
 
 -(void) dealloc {
-	[player1 dealloc];
-	[player2 dealloc];
+	[self.player1 dealloc];
+	[self.player2 dealloc];
+	
 	[super dealloc];
 }
 

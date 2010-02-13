@@ -14,7 +14,8 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
 	// Insert code here to initialize your application 
-	controller = [[SNMainWindowController alloc] initWithWindow:window];
+	NSLog(@"settingup controller");
+	[controller setup];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {

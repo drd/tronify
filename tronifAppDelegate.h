@@ -7,11 +7,11 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "SNMainWindowController.h"
+#import "SNMatchController.h"
 
 @interface tronifAppDelegate : NSObject <NSApplicationDelegate> {
     NSWindow *window;
-	IBOutlet SNMainWindowController *controller;
+	IBOutlet SNMatchController *controller;
 }
 
 @property (assign) IBOutlet NSWindow *window;
