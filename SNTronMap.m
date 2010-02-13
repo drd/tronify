@@ -91,9 +91,6 @@
 	BOOL alive;
 	position p = players[player];
 
-	NSLog(@"Current map");
-	[self dump];
-	
 	walls[p.x][p.y] = WALL;
 
 	switch (move) {
@@ -121,9 +118,6 @@
 	
 	players[player] = p;
 	walls[p.x][p.y] = (player == 0 ? P1 : P2);
-	
-	NSLog(@"Updated map");
-	[self dump];
 	
 	return alive;
 }
