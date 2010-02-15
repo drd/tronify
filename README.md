@@ -10,7 +10,6 @@ Compile/build with XCode. Open a legitimate map file (.txt) and then choose Play
 
 TODO
 ----
-- don't forget to switch players 1 & 2 when sending them the map!
 - fix the timer loop, it's not really doing the right thing yet
 - implement pause and reset
 - fix the countless bugs that are sure to exist in this hastily hacked out prototype
@@ -23,6 +22,8 @@ DONE
 + add live window resizing of the maps
 + fix the way the players array is stupid: argh, NSArray. 
 	+ create SNNullTronBot subclass to pre-populate players array
++ don't forget to switch players 1 & 2 when sending them the map!
++ display prior moves in the players own colors
 
 
 eric AT roundpegdesigns DOT com 

@@ -23,7 +23,8 @@
 -(SNTronBot *) initFromFile:(NSString *)path playerNum:(int)player;
 -(void) launch;
 -(void) kill;
--(int) takeATurn:(SNTronMap *)map;
+-(void) sendMap:(SNTronMap *)map;
+-(int) getMove;
 -(BOOL) isNull;
 
 @property (retain,nonatomic) NSString *filename;

@@ -83,30 +83,51 @@
 	NSLog(@"Launching player 2");
 	[self.player2 launch];
 	
+	[self sendMapToBots];
 	NSLog(@"Starting game timer..");
 	gameRunning = YES;
-	botTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 
+	botTimer = [NSTimer scheduledTimerWithTimeInterval:3.0 
 												target:self 
-											  selector:@selector(performStep) 
+											  selector:@selector(takeFirstTurn) 
 											  userInfo:nil 
-											   repeats:YES];
+											   repeats:NO];
 }
 
--(void) performStep {
-	NSLog(@"performStep, taking player turns");
-	int p1move = [self.player1 takeATurn:map];
-	int p2move = [self.player2 takeATurn:map];
-	
-	NSLog(@"p1move: %d p2move: %d", p1move, p2move);
-	
-	[mapView setNeedsDisplay:YES];
+-(void) sendMapToBots {
+	[self.player1 sendMap:map];
+	[self.player2 sendMap:map];
+}	
+
+-(void) getBotMoves {
+	int p1move = [self.player1 getMove];
+	int p2move = [self.player2 getMove];
 	
 	BOOL p1Alive = [map p1Moves:p1move];
 	BOOL p2Alive = [map p2Moves:p2move];
 	
+	[mapView setNeedsDisplay:YES];
+	
 	if (!(p1Alive && p2Alive)) {
 		[self endgameReachedWithPlayer1:p1Alive player2:p2Alive];
-	}
+	}	
+}
+
+-(void) takeFirstTurn {
+	[self getBotMoves];
+	[self sendMapToBots];
+
+	[botTimer invalidate];
+
+	botTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 
+												target:self 
+											  selector:@selector(takeNormalTurn) 
+											  userInfo:nil 
+											   repeats:YES];
+}
+
+-(void) takeNormalTurn {
+	[self getBotMoves];
+	[self sendMapToBots];
 }
 
 -(void) endgameReachedWithPlayer1:(BOOL)p1Alive player2:(BOOL)p2Alive {

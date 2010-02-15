@@ -33,7 +33,10 @@
 -(IBAction) setP2:(id)sender;
 -(IBAction) go:(id)sender;
 
--(void) performStep;
+-(void) takeFirstTurn;
+-(void) takeNormalTurn;
+-(void) sendMapToBots;
+
 -(void) endgameReachedWithPlayer1:(BOOL)p1Alive player2:(BOOL)p2Alive;
 
 -(void) killAllBots;

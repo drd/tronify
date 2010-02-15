@@ -91,19 +91,18 @@
 	[task release];
 }	
 
--(int) takeATurn:(SNTronMap *)map {
+-(void) sendMap:(SNTronMap *)map {
 	NSLog(@"Taking a turn...");
 	[map sendToBot:self];
-	[map dumpForPlayer:playerNum];
-	NSLog(@"Data written...");
+}
 
-//	return 0;
+-(int) getMove {
 	int fd = [[output fileHandleForReading] fileDescriptor];
 	FILE* fp = fdopen(fd, "r");
-
+	
 	char in[100];
 	fgets(in, 100, fp);
-
+	
 	NSLog(@"received input: %s", in);
 	
 	return atoi(in);
