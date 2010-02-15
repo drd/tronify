@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import "SNTronMap.h"
 #import "SNTronBot.h"
+#import "SNNullTronBot.h"
 #import "SNTronMapView.h"
 
 #define PLAYER1	0

@@ -18,6 +18,10 @@
 	return self;
 }	
 
+- (BOOL) isNull {
+	return NO;
+}
+
 -(void) setFilename:(NSString *)name {
 	filename = [name retain];
 	

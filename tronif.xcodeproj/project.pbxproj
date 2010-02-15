@@ -11,6 +11,7 @@
 		0775C59A11247162004BE049 /* SNTronMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0775C59911247162004BE049 /* SNTronMapView.m */; };
 		0775C59D1124717B004BE049 /* SNTronMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 0775C59C1124717B004BE049 /* SNTronMap.m */; };
 		0775C65C1124C132004BE049 /* SNTronBot.m in Sources */ = {isa = PBXBuildFile; fileRef = 0775C65B1124C132004BE049 /* SNTronBot.m */; };
+		0777DC3E1129FFAD00CE0678 /* SNNullTronBot.m in Sources */ = {isa = PBXBuildFile; fileRef = 0777DC3D1129FFAD00CE0678 /* SNNullTronBot.m */; };
 		07B1C30511261A7500A441C4 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 07B1C30411261A7500A441C4 /* README.md */; };
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		256AC3DA0F4B6AC300CF3369 /* tronifAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AC3D90F4B6AC300CF3369 /* tronifAppDelegate.m */; };
@@ -28,6 +29,8 @@
 		0775C59C1124717B004BE049 /* SNTronMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNTronMap.m; sourceTree = "<group>"; };
 		0775C65A1124C132004BE049 /* SNTronBot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNTronBot.h; sourceTree = "<group>"; };
 		0775C65B1124C132004BE049 /* SNTronBot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNTronBot.m; sourceTree = "<group>"; };
+		0777DC3C1129FFAD00CE0678 /* SNNullTronBot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNNullTronBot.h; sourceTree = "<group>"; };
+		0777DC3D1129FFAD00CE0678 /* SNNullTronBot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNNullTronBot.m; sourceTree = "<group>"; };
 		07B1C30411261A7500A441C4 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
@@ -76,6 +79,8 @@
 				0775C59911247162004BE049 /* SNTronMapView.m */,
 				0775C65A1124C132004BE049 /* SNTronBot.h */,
 				0775C65B1124C132004BE049 /* SNTronBot.m */,
+				0777DC3C1129FFAD00CE0678 /* SNNullTronBot.h */,
+				0777DC3D1129FFAD00CE0678 /* SNNullTronBot.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -209,6 +214,7 @@
 				0775C59A11247162004BE049 /* SNTronMapView.m in Sources */,
 				0775C59D1124717B004BE049 /* SNTronMap.m in Sources */,
 				0775C65C1124C132004BE049 /* SNTronBot.m in Sources */,
+				0777DC3E1129FFAD00CE0678 /* SNNullTronBot.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

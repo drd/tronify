@@ -12,7 +12,7 @@
 @implementation SNMatchController
 
 - (void)setup {
-	players = [[NSMutableArray alloc] initWithCapacity:2];
+	players = [[NSMutableArray alloc] initWithObjects:[SNNullTronBot nullBot], [SNNullTronBot nullBot], nil];
 }
 
 -(SNTronBot *)player1 {

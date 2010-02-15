@@ -60,12 +60,12 @@
 				c = [NSColor whiteColor];
 			} else if (val == p1) {
 				c = [NSColor redColor];
-				if (controller.player1 == nil) {
+				if (controller.player1.isNull) {
 					c = [NSColor colorWithDeviceRed:1.0 green:0.5 blue:0.5 alpha:1.0];
 				}
 			} else if (val == p2) {
 				c = [NSColor blueColor];
-				if (controller.player2 == nil) {
+				if (controller.player2.isNull) {
 					c = [NSColor colorWithDeviceRed:0.5 green:0.5 blue:1.0 alpha:1.0];
 				}
 			} else {

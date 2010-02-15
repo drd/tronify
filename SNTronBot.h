@@ -20,7 +20,9 @@
 -(void) launch;
 -(void) kill;
 -(int) takeATurn:(SNTronMap *)map;
+-(BOOL) isNull;
 
 @property (retain,nonatomic) NSString *filename;
+@property (readonly) BOOL isNull;
 
 @end
