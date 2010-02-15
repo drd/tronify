@@ -63,7 +63,7 @@
 		[[players objectAtIndex:playerNum] release];
 	}
 	
-	[players insertObject:[[SNTronBot alloc] initFromFile:filename] atIndex:playerNum];
+	[players insertObject:[[SNTronBot alloc] initFromFile:filename playerNum:playerNum] atIndex:playerNum];
 	[mapView setNeedsDisplay:YES];
 }
 

@@ -82,16 +82,15 @@
 		
 	}
 	
-	[self dumpToFileHandle:[NSFileHandle fileHandleWithStandardError]];
-	
 	return self;
 }
 
 - (BOOL)player:(int)player moves:(int)move {
 	BOOL alive;
 	position p = players[player];
+	int newValue = (player == 0 ? P1 : P2) - 1;
 
-	walls[p.x][p.y] = WALL;
+	walls[p.x][p.y] = newValue;
 
 	switch (move) {
 		case NORTH:
@@ -155,33 +154,39 @@
 	return walls[x][y] != EMPTY;
 }
 
-- (void)dump {
-	[self dumpToFileHandle:[NSFileHandle fileHandleWithStandardOutput]];
-}
-	
-- (void)dumpToFileHandle:(NSFileHandle *)fh {
-	[fh writeData:[self toNSData]];
+- (void)sendToBot:(SNTronBot *)player {
+	[self sendToPlayer:player.playerNum fileHandle:player.write];
 }
 
-- (NSData *)toNSData {
+- (void)dumpForPlayer:(int)playerNum {
+	[self sendToPlayer:playerNum fileHandle:[NSFileHandle fileHandleWithStandardOutput]];
+}
+	
+- (void)sendToPlayer:(int)playerNum fileHandle:(NSFileHandle *)fh {
+	[fh writeData:[self toNSDataForPlayer:playerNum]];
+}
+
+- (NSData *)toNSDataForPlayer:(int)playerNum {
 	NSMutableString *map;
+	NSString *p1Str = playerNum == PLAYER1 ? @"1" : @"2";
+	NSString *p2Str = playerNum == PLAYER1 ? @"2" : @"1";
+	
 	map = [NSMutableString stringWithFormat:@"%d %d\n", width, height];
 	for (int y = 0; y < height; y++) {
 		for (int x = 0; x < width; x++) {
 			switch (walls[x][y]) {
-				case WALL:
-					[map appendString:@"#"];
-					break;
 				case EMPTY:
 					[map appendString:@" "];
 					break;
 				case P1:
-					[map appendString:@"1"];
+					[map appendString:p1Str];
 					break;
 				case P2:
-					[map appendString:@"2"];
+					[map appendString:p2Str];
 					break;
+				case WALL:
 				default:
+					[map appendString:@"#"];
 					break;
 			}
 		}

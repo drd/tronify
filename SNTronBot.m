@@ -11,10 +11,11 @@
 
 @implementation SNTronBot
 
-@synthesize filename;
+@synthesize filename, playerNum;
 
--(id) initFromFile:(NSString *)path {
+-(id) initFromFile:(NSString *)path playerNum:(int)num {
 	self.filename = path;
+	playerNum = num;
 	return self;
 }	
 
@@ -71,6 +72,14 @@
 	
 }
 
+-(NSFileHandle *)read {
+	return [input fileHandleForReading];
+}
+
+-(NSFileHandle *)write {
+	return [input fileHandleForWriting];
+}
+
 -(void) launch {
 	[task launch];
 }
@@ -84,8 +93,8 @@
 
 -(int) takeATurn:(SNTronMap *)map {
 	NSLog(@"Taking a turn...");
-	NSFileHandle *write = [input fileHandleForWriting];
-	[map dumpToFileHandle:write];
+	[map sendToBot:self];
+	[map dumpForPlayer:playerNum];
 	NSLog(@"Data written...");
 
 //	return 0;

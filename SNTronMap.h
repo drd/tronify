@@ -7,19 +7,9 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "SNTronBot.h"
 
-#define WALL	1000
-#define EMPTY	0
-#define P1		-100
-#define P2		100
-
-#define PLAYER1	0
-#define PLAYER2	1
-
-#define NORTH	1
-#define EAST	2
-#define SOUTH	3
-#define WEST	4
+@class SNTronBot;
 
 typedef struct _position {
 	int x, y;
@@ -45,9 +35,10 @@ typedef struct _position {
 - (BOOL)isWallAtX:(int)x Y:(int)y;
 - (int)atX:(int)x Y:(int)y;
 
-- (void)dumpToFileHandle:(NSFileHandle *)fh;
-- (void)dump;
-- (NSData *)toNSData;
+- (void)sendToBot:(SNTronBot *)player;
+- (void)dumpForPlayer:(int)playerNum;
+- (void)sendToPlayer:(int)playerNum fileHandle:(NSFileHandle *)fh;
+- (NSData *)toNSDataForPlayer:(int)playerNum;
 
 @property (nonatomic,readonly) int width;
 @property (nonatomic,readonly) int height;

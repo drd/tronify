@@ -12,9 +12,6 @@
 #import "SNNullTronBot.h"
 #import "SNTronMapView.h"
 
-#define PLAYER1	0
-#define PLAYER2	1
-
 @class SNTronMapView;
 
 @interface SNMatchController : NSWindowController {
